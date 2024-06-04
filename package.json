@@ -1,5 +1,5 @@
 {
-  "name": "example-typescript-package",
+  "name": "typescript-file-copy-plugin",
   "version": "0.0.1",
   "description": "",
   "types": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "lint": "npx @biomejs/biome lint src",
     "lint:check": "npx @biomejs/biome check --apply-unsafe src",
     "lint-staged": "lint-staged",
-    "prepare": "husky install",
+    "prepare": "husky install && ts-patch install -s",
     "release": "changeset publish",
     "test": "vitest",
     "test:watch": "vitest",
@@ -35,16 +35,27 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
-  "author": "Tom Chen <tomchen.org@gmail.com>",
+  "keywords": [
+    "file",
+    "copy",
+    "build",
+    "typescript",
+    "plugin",
+    "tsc",
+    "ts-patch"
+  ],
+  "author": "Theo Gravity <theo@suteki.nu>",
   "license": "MIT",
-  "homepage": "https://github.com/tomchen/example-typescript-package",
+  "homepage": "https://github.com/theogravity/typescript-file-copy-plugin",
   "repository": {
     "type": "git",
-    "url": "git@github.com:tomchen/example-typescript-package.git"
+    "url": "git@github.com:theogravity/typescript-file-copy-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/tomchen/example-typescript-package/issues"
+    "url": "https://github.com/theogravity/typescript-file-copy-plugin/issues"
+  },
+  "dependencies": {
+    "cpx2": "^7.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.3",
@@ -52,11 +63,15 @@
     "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@types/node": "^20.12.8",
+    "@types/glob": "^8.1.0",
+    "@types/mkdirp": "^2.0.0",
+    "@types/mock-fs": "^4.13.4",
+    "@types/node": "^20.14.1",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.2",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.3",
+    "ts-patch": "^3.2.0",
+    "typescript": "^5.4.5",
     "vitest": "^1.4.0"
   },
   "lint-staged": {

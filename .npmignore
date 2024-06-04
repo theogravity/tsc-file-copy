@@ -23,3 +23,4 @@ biome.json
 build/
 commitlint.config.js
 tsup.config.json
+vitest.config.js
