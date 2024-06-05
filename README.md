@@ -22,7 +22,25 @@ To install `ts-patch`, run the following command:
 npm install --save-dev ts-patch
 ```
 
-After installing, you need to patch the TypeScript compiler by adding this script to your `package.json`:
+For more details on setting up `ts-patch`, refer to the [ts-patch documentation](https://github.com/nonara/ts-patch#readme).
+
+There are two ways to patch the TypeScript compiler:
+
+#### 1. Using the CLI
+
+You can change your `tsc` to `tspc` instead.
+
+```json
+{
+  "scripts": {
+    "build": "tspc --project tsconfig.json"
+  }
+}
+```
+
+#### 2. Using the `prepare` Script
+
+You can instead patch the TypeScript compiler by adding this script to your `package.json`, allowing you to continue using `tsc` as normal:
 
 ```json
 {
@@ -31,8 +49,6 @@ After installing, you need to patch the TypeScript compiler by adding this scrip
   }
 }
 ```
-
-For more details on setting up `ts-patch`, refer to the [ts-patch documentation](https://github.com/nonara/ts-patch#readme).
 
 ## Installation
 
@@ -54,7 +70,6 @@ Here is an example of how to configure the plugin:
     "plugins": [
       {
         "transform": "typescript-file-copy-plugin",
-        "after": true,
         "copy": [
           {
             "src": "src/assets/*",
@@ -77,7 +92,6 @@ Here is an example of how to configure the plugin:
     ```json
     {
       "transform": "typescript-file-copy-plugin",
-      "after": true,
       "copy": [
         {
           "src": "src/single-file.txt",
@@ -91,7 +105,6 @@ Here is an example of how to configure the plugin:
     ```json
     {
       "transform": "typescript-file-copy-plugin",
-      "after": true,
       "copy": [
         {
           "src": "src/directory/*",
@@ -105,7 +118,6 @@ Here is an example of how to configure the plugin:
     ```json
     {
       "transform": "typescript-file-copy-plugin",
-      "after": true,
       "copy": [
         {
           "src": "src/wildcard/*.txt",
@@ -119,7 +131,6 @@ Here is an example of how to configure the plugin:
     ```json
     {
       "transform": "typescript-file-copy-plugin",
-      "after": true,
       "copy": [
         {
           "src": "src/double-wildcard/**/*",
@@ -133,7 +144,6 @@ Here is an example of how to configure the plugin:
     ```json
     {
       "transform": "typescript-file-copy-plugin",
-      "after": true,
       "copy": [
         {
           "src": "src/single-file.txt",
